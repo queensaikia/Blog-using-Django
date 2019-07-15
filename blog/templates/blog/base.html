@@ -1,0 +1,45 @@
+{% load static %}
+<html>
+    <head>
+        <title>Blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <nav style="opacity:1">
+                {% if user.is_authenticated %}
+                <div class="navbar">
+                    <form class="logout-link" action="/accounts/logout/" method="post">
+                        {% csrf_token %}
+                        <a href="{% url 'post_list' %}" style="font-size:32px">Share Your Views</a>
+                         <a href="{% url 'post_new' %}" class="top-menu" style="float:right"><span class="glyphicon glyphicon-plus"></span></a>
+                        <button type="submit" style="float:right;">Logout</button> 
+                    </form>
+                </div>   
+                {% else %}
+                <div class="navbar">
+                    <a href="{% url 'post_list' %}" style="font-size:32px">Share Your Thoughts</a>
+                    <a href="accounts/login" style="float:right">Login</a>
+                    <a href="accounts/signup" style="float:right">Sign Up</a>
+                </div>
+                {% endif %}           
+            
+        </nav>    
+        <!-- inserts image -->
+    <div class="page-header bg">
+    </div>   
+        
+    <div>
+        <div class="content container">
+                <div class="row">
+                    <div class="col-md-8">
+                    {% block content %}
+                    {% endblock %}
+                    </div>
+                </div>
+            </div>
+    </div>  
+    </body>
+</html>

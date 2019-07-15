@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class=innerpost>
+                <div class="date" style="float:right">
+                   <i> {{ post.published_date }}    </i>
+                </div>
+               <i> <div class="detail_header" style="float:left"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></div></i>            
+            <br><br><br><br>
+                <div>
+                <p class="blog_text"><i>{{ post.text|linebreaksbr }}</i></p>
+                </div>
+            </div>    
+        </div>
+    {% endfor %}
+{% endblock %}
