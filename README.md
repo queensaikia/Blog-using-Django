@@ -1,8 +1,8 @@
--This blog is made using Django Framework.
+-This Blog is made using Django Framework. The Database used here is mySQL.
 
--Language used-Python,Html,Css,Javascript
+-Languages used :- Python,Html,CSS,Javascript
 
--Bootstrap is also used.
+-Bootstrap has been used to prettify the page.
 
 -User can signup and share their views and also edit it.
 
